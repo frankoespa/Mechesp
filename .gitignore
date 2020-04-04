@@ -1,11 +1,5 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # dependencies client
 /node_modules
-
-# dependecies server
-/server/dist
-/server/node_modules
 
 # testing
 /coverage
@@ -13,11 +7,39 @@
 # production
 /build
 /dist
+/out
 /.next
+config.js
 
 # misc
 .DS_Store
-.env
+*.env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Logs
+logs
+*.log
+lerna-debug.log*
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+

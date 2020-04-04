@@ -12,7 +12,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import DialogDeleteService from './DialogDeleteService';
 import IServiceDeletedVm from '../src/interfaces/IServiceDeletedVm';
 import DialogAddService from './DialogAddService';
-import { IServicioTrabajo } from '../src/classes/IServicioTrabajo';
+import { IServicioTrabajo } from '../src/interfaces/IServicioTrabajo';
 
 const styles = (theme: Theme) =>
 	createStyles({
