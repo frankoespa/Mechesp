@@ -20,13 +20,17 @@ import PrimaryText from '../Utils/PrimaryText';
 const styles = (theme: Theme) =>
 	createStyles({
 		root: {
+			display: 'flex',
+			justifyContent: 'center',
+			alignItems: 'center',
 			backgroundColor: theme.palette.primary.main,
 			backgroundImage: 'url("/portada2.svg")',
 			backgroundPosition: 'top left',
 			backgroundRepeat: 'no-repeat',
 			backgroundSize: 'cover',
 			paddingTop: theme.spacing(10),
-			paddingBottom: theme.spacing(10)
+			paddingBottom: theme.spacing(10),
+			minHeight: '100vh'
 		},
 		item: {
 			fontWeight: theme.typography.fontWeightBold,
@@ -58,8 +62,7 @@ function Services(props: IProps): JSX.Element {
 	];
 
 	return (
-		<Box className={classes.root}>
-			<div id='Servicios' />
+		<Box className={classes.root} id='Servicios'>
 			<Container fixed>
 				<Grid container>
 					<Hidden smDown>
@@ -71,8 +74,7 @@ function Services(props: IProps): JSX.Element {
 						<SecondTitle text='Servicios' color='light' align='left' />
 						<PrimaryText
 							color='light'
-							text='Ofrecemos servicios variados de mecánica integral automotriz apoyándonos en el diagnóstico computarizado y las últimas
-						herramientas para llevar a cabo un proceso de reparación exitoso y en el menor tiempo posible'
+							text='Ofrecemos servicios variados de mecánica integral automotriz apoyándonos en el diagnóstico computarizado y las últimas herramientas para llevar a cabo un proceso de reparación exitoso y en el menor tiempo posible.'
 						/>
 						<List aria-label='servicios'>
 							{servicios.map((s, k) => (

@@ -92,9 +92,11 @@ class BaseLayout extends Component<Props, IState> {
 		switch (section) {
 			case 'Nosotros':
 				this.sweetScroll.to(`#${section}`);
+				!this.state.mobileOpen ? null : this.handleDrawerToggle();
 				break;
 			case 'Servicios':
 				this.sweetScroll.to(`#${section}`);
+				!this.state.mobileOpen ? null : this.handleDrawerToggle();
 				break;
 
 			default:
