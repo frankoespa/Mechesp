@@ -4,6 +4,7 @@ import Section from '../Utils/Section';
 import IconWhatsap from '@material-ui/icons/WhatsApp';
 import IconFacebook from '@material-ui/icons/Facebook';
 import { GLOBAL } from '../../src/configGlobal';
+import PrimaryText from '../Utils/Text/PrimaryText';
 
 interface IProps {}
 
@@ -38,22 +39,16 @@ export default function Footer(props: IProps) {
 					<Grid container spacing={4} className={classes.sectionInfo}>
 						<Grid item xs={12} md={4}>
 							<img src='/fullLogo.svg' alt='Mecánica Esparza' className={classes.logo} />
-							<Typography variant='body1' component='p' gutterBottom>
-								Lamadrid 2424
-							</Typography>
+							<PrimaryText color='light' text={GLOBAL.BUSINESS_ADDRESS} />
 							<Typography variant='body1' component='p' gutterBottom>
 								<Link href={GLOBAL.WHATSAPP_PHONE} color='inherit' underline='none'>
-									<IconWhatsap className={classes.icon}></IconWhatsap> (341) 5889498
+									<IconWhatsap className={classes.icon}></IconWhatsap> {GLOBAL.BUSINESS_PHONE}
 								</Link>
 							</Typography>
 						</Grid>
 						<Grid item xs={12} md={4} className={classes.sectionInfo}>
-							<Typography variant='body1' component='p' gutterBottom>
-								Lu a Vi de 8 a 12 y 14:30 a 18
-							</Typography>
-							<Typography variant='body1' component='p' gutterBottom>
-								Rosario (Santa Fe)
-							</Typography>
+							<PrimaryText color='light' text={GLOBAL.BUSINESS_TIME} />
+							<PrimaryText color='light' text={GLOBAL.BUSINESS_LOCATION} />
 						</Grid>
 						<Grid item xs={12} md={4} className={classes.sectionInfo}>
 							<Typography variant='body1' component='p' gutterBottom>

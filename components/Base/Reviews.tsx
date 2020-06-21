@@ -6,10 +6,10 @@ import Typography from '@material-ui/core/Typography';
 import IconStar from '@material-ui/icons/Star';
 import Section from '../Utils/Section';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
-import SecondTitle from '../Utils/SecondTitle';
+import SecondTitle from '../Utils/Text/SecondTitle';
 import { IReview } from '../../src/interfaces/IReview';
+import PrimaryButton from '../Utils/Button/PrimaryButton';
 
 interface IProps {
 	data: IReview[];
@@ -84,9 +84,7 @@ export default function Reviews(props: IProps) {
 					})}
 				</AutoplaySlider>
 				<Box className={classes.containerBtn}>
-					<Button variant='contained' size='large' className={classes.actionBtn} href='https://g.page/r/CU6teep3mn1fEAI/review'>
-						Tu Opinión
-					</Button>
+					<PrimaryButton text='Tu Opinión' href='https://g.page/r/CU6teep3mn1fEAI/review'></PrimaryButton>
 				</Box>
 			</Container>
 		</Section>

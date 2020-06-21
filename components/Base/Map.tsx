@@ -6,10 +6,10 @@ import GoogleMap from '../Utils/Wrappermap';
 interface IProps {}
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
-		position: 'relative',
-		height: '500px',
+        position: 'relative',
+        height: '400px',
 		[theme.breakpoints.only('xs')]: {
-			height: '400px'
+			height: '300px'
 		}
 	}
 }));

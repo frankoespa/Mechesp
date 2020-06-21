@@ -10,6 +10,7 @@ import Logos from '../components/Base/Logos';
 import ActionScroll from '../components/Utils/ActionScroll';
 import Footer from '../components/Base/Footer';
 import { IReview } from '../src/interfaces/IReview';
+import Contact from '../components/Base/Contact';
 
 interface IProps {
 	allReviews: IReview[];
@@ -23,8 +24,9 @@ export default function Home(props: IProps) {
 			<Cover></Cover>
 			<Services></Services>
 			<About></About>
-			<Reviews data={allReviews}></Reviews>
 			<Logos></Logos>
+			<Reviews data={allReviews}></Reviews>
+			<Contact></Contact>
 			<Map></Map>
 			<Footer></Footer>
 		</Fragment>

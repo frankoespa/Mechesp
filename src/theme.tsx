@@ -21,12 +21,6 @@ let theme = createMuiTheme({
 			primary: grey[50],
 			secondary: '#1E1E24'
 		}
-	},
-	typography: {
-		body1: {
-			fontSize: '1.1rem',
-			fontWeight: 300
-		}
 	}
 });
 

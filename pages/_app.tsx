@@ -1,4 +1,5 @@
 import App from 'next/app';
+import Error from 'next/error'
 import { CssBaseline } from '@material-ui/core';
 import 'react-awesome-slider/dist/styles.css';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -40,15 +41,19 @@ export default class MyApp extends App {
 					</BaseLayout>
 				</ThemeProvider>
 			);
-		} else {
-			return (
-				<ThemeProvider theme={theme}>
-					<CssBaseline />
-					<Layout>
-						<Component {...pageProps} />
-					</Layout>
-				</ThemeProvider>
-			);
-		}
+        }
+        else {
+            <Error statusCode= {404}></Error>
+        }
+        // else {
+		// 	return (
+		// 		<ThemeProvider theme={theme}>
+		// 			<CssBaseline />
+		// 			<Layout>
+		// 				<Component {...pageProps} />
+		// 			</Layout>
+		// 		</ThemeProvider>
+		// 	);
+		// }
 	}
 }

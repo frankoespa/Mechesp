@@ -98,7 +98,9 @@ class BaseLayout extends Component<Props, IState> {
 				this.sweetScroll.to(`#${section}`);
 				!this.state.mobileOpen ? null : this.handleDrawerToggle();
 				break;
-
+            case 'Contacto':
+                this.sweetScroll.to(`#${section}`);
+				!this.state.mobileOpen ? null : this.handleDrawerToggle();
 			default:
 				break;
 		}
@@ -134,7 +136,9 @@ class BaseLayout extends Component<Props, IState> {
 									<Button className={classes.appBarBtn} onClick={() => this.handleSweetScroll('Servicios')}>
 										Servicios
 									</Button>
-									<Button className={classes.appBarBtn}>Contacto</Button>
+									<Button className={classes.appBarBtn} onClick={() => this.handleSweetScroll('Contacto')}>
+										Contacto
+									</Button>
 								</Hidden>
 								<IconButton
 									color='inherit'

@@ -14,8 +14,8 @@ import {
 	ListItemIcon,
 	ListItemText
 } from '@material-ui/core';
-import SecondTitle from '../Utils/SecondTitle';
-import PrimaryText from '../Utils/PrimaryText';
+import SecondTitle from '../Utils/Text/SecondTitle';
+import PrimaryText from '../Utils/Text/PrimaryText';
 
 const styles = (theme: Theme) =>
 	createStyles({

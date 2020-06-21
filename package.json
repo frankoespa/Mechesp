@@ -11,6 +11,9 @@
 		"@material-ui/pickers": "^3.2.5",
 		"axios": "^0.19.2",
 		"dotenv": "^8.2.0",
+		"emailjs-com": "^2.4.1",
+		"formik": "^2.1.4",
+		"formik-material-ui": "^2.0.0-beta.1",
 		"google-maps-react": "^2.0.2",
 		"moment": "^2.24.0",
 		"next": "^9.3.3",
@@ -18,11 +21,13 @@
 		"react-awesome-slider": "^4.1.0",
 		"react-dom": "^16.13.1",
 		"react-messenger-customer-chat": "^0.7.2",
-		"sweet-scroll": "^4.0.0"
+		"sweet-scroll": "^4.0.0",
+		"yup": "^0.28.3"
 	},
 	"devDependencies": {
 		"@types/node": "^12.7.1",
 		"@types/react": "^16.9.1",
+		"@types/yup": "^0.26.35",
 		"@zeit/next-sass": "^1.0.1",
 		"node-sass": "^4.12.0",
 		"typescript": "^3.5.3"

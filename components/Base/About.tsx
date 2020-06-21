@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { WithStyles, Theme, createStyles, withStyles, Box } from '@material-ui/core';
 import Section from '../Utils/Section';
-import SecondTitle from '../Utils/SecondTitle';
-import PrimaryText from '../Utils/PrimaryText';
+import SecondTitle from '../Utils/Text/SecondTitle';
+import PrimaryText from '../Utils/Text/PrimaryText';
 
 const styles = (theme: Theme) =>
 	createStyles({
@@ -52,7 +52,7 @@ function About(props: IProps): JSX.Element {
 			<Section background='light'>
 				<Container fixed>
 					<SecondTitle text='Nosotros' color='dark' align='center' subtitle='DESDE 1980' />
-					<Grid container spacing={4} className={classes.rootGrid}>
+					<Grid container spacing={4}>
 						<Grid item xs={12} md={6}>
 							<PrimaryText
 								color='dark'
