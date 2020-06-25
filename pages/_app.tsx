@@ -22,7 +22,7 @@ export default class MyApp extends App {
 
 	render() {
 		const { Component, pageProps, router } = this.props;
-		if (!router.pathname.includes('repadmin')) {
+		// if (!router.pathname.includes('repadmin')) {
 			return (
 				<ThemeProvider theme={theme}>
 					<CssBaseline />
@@ -41,10 +41,7 @@ export default class MyApp extends App {
 					</BaseLayout>
 				</ThemeProvider>
 			);
-        }
-        else {
-            <Error statusCode= {404}></Error>
-        }
+        // }
         // else {
 		// 	return (
 		// 		<ThemeProvider theme={theme}>

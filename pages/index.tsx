@@ -11,6 +11,7 @@ import ActionScroll from '../components/Utils/ActionScroll';
 import Footer from '../components/Base/Footer';
 import { IReview } from '../src/interfaces/IReview';
 import Contact from '../components/Base/Contact';
+import { GLOBAL } from '../src/configGlobal';
 
 interface IProps {
 	allReviews: IReview[];
@@ -34,7 +35,7 @@ export default function Home(props: IProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-	const allReviews = await Axios.get(process.env.API_GOOGLE_MAP).then((response) => response.data.result.reviews as IReview[]);
+	const allReviews = await Axios.get(GLOBAL.API_GOOGLE_MAP).then((response) => response.data.result.reviews as IReview[]);
 
 	return {
 		props: {
