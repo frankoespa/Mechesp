@@ -29,8 +29,13 @@ export default function FormFactory(props: IProps) {
 			enableReinitialize={true}
 			initialValues={initialValues}
 			onSubmit={async (values, formikHelpers) => {
-				formikHelpers.setSubmitting(false);
-				onSubmit(values, formikHelpers);
+				formikHelpers.setSubmitting(true);
+				try {
+                    await onSubmit(values, formikHelpers);
+                    formikHelpers.setStatus(true);
+                } catch (e) {
+                    console.log(e);
+                }
 			}}
 			validationSchema={Yup.object().shape(validations)}>
 			{(formUtils) => (

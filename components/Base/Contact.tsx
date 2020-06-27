@@ -43,12 +43,18 @@ interface ViewModel {
 export default function Contact(props: IProps): JSX.Element {
 	const classes = useStyles(props);
 
-	function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
-		MailSender.send('gmail', 'contact', values, 'user_zRtVQFZaU6RiF0T6EBrht')
-			.then((r) => {
-				formikHelpers.setStatus(true);
-			})
-			.catch((e) => {});
+    function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
+        return new Promise((resolve, reject) => {
+            
+            MailSender.send('gmail', 'contact', values, 'user_zRtVQFZaU6RiF0T6EBrht')
+                .then((r) => {
+                    resolve(r)
+                })
+                .catch((e: Error) => {
+                    reject(e)
+                });
+        })
+
 	}
 
 	return (
@@ -97,7 +103,7 @@ export default function Contact(props: IProps): JSX.Element {
 									[Labels.Nombre]: '',
 									[Labels.Email]: '',
 									[Labels.Mensaje]: ''
-                                }}
+								}}
 								validations={{
 									[Labels.Nombre]: Yup.string().required('Requerido'),
 									[Labels.Email]: Yup.string().email('Email inválido').required('Requerido'),
@@ -109,6 +115,7 @@ export default function Contact(props: IProps): JSX.Element {
 										<TextInput name={Labels.Nombre} label={Labels.Nombre} disabled={form.status}></TextInput>
 										<EmailInput name={Labels.Email} label={Labels.Email} disabled={form.status}></EmailInput>
 										<TextAreaInput name={Labels.Mensaje} label={Labels.Mensaje} disabled={form.status}></TextAreaInput>
+										<br />
 										{form.isSubmitting && <LinearProgress />}
 										<br />
 										{!form.status ? (
