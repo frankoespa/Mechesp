@@ -47,7 +47,7 @@ export default function Contact(props: IProps): JSX.Element {
     function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
         return new Promise((resolve, reject) => {
             
-            MailSender.send('test-email', 'contact', values, GLOBAL.EMAILJS_KEY)
+            MailSender.send(GLOBAL.EMAIL_SENDER, 'contact', values, GLOBAL.EMAILJS_KEY)
 				.then((r) => {
 					resolve(r);
 				})
