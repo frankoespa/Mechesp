@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { GetStaticProps, NextPageContext } from 'next';
+import Head from 'next/head';
 import Axios from 'axios';
 import Cover from '../components/Base/Cover';
 import Services from '../components/Base/Services';
@@ -21,6 +22,13 @@ export default function Home(props: IProps) {
 	const { allReviews } = props;
 	return (
 		<Fragment>
+			<Head>
+				<title>Mecánica Esparza | Mecánica Integral Automotriz</title>
+				<meta
+					name='description'
+					content='Somos una empresa de Rosario especializada en servicios de mecánica integral automotriz desde hace 30 años, contando con un equipo de profesionales experimentados, equipamiento y tecnología de vanguardia'
+				/>
+			</Head>
 			<ActionScroll></ActionScroll>
 			<Cover></Cover>
 			<Services></Services>
@@ -35,7 +43,8 @@ export default function Home(props: IProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-	const allReviews = await Axios.get(GLOBAL.API_GOOGLE_MAP).then((response) => response.data.result.reviews as IReview[]);
+    const reviewsResponse = await Axios.get(GLOBAL.API_GOOGLE_MAP);
+    const allReviews = reviewsResponse.data.result.reviews as IReview[];
 
 	return {
 		props: {

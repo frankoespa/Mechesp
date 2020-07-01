@@ -64,7 +64,7 @@ function Cover(props: IProps): JSX.Element {
 						</Typography>
 					</Grid>
 					<Grid item xs={12} lg={6} className={classes.gridImg}>
-						<img src='/work.svg' alt='' className={classes.portadaImg} />
+						<img src='/work.svg' alt='portada Mecánica Esparza Rosario' className={classes.portadaImg} />
 					</Grid>
 				</Grid>
 			</Container>

@@ -38,7 +38,7 @@ export default function Footer(props: IProps) {
 				<Container>
 					<Grid container spacing={4} className={classes.sectionInfo}>
 						<Grid item xs={12} md={4}>
-							<img src='/fullLogo.svg' alt='Mecánica Esparza' className={classes.logo} />
+							<img src='/fullLogo.svg' alt='Logo Mecánica Esparza' className={classes.logo} />
 							<PrimaryText color='light' text={GLOBAL.BUSINESS_ADDRESS} />
 							<Typography variant='body1' component='p' gutterBottom>
 								<Link href={GLOBAL.WHATSAPP_PHONE} color='inherit' underline='none'>

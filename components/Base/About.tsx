@@ -69,7 +69,7 @@ function About(props: IProps): JSX.Element {
 					<Divider className={classes.divider} />
 					<Grid container spacing={4} className={classes.rootGrid}>
 						<Grid item xs={12} md={6} className={classes.boxGrid}>
-							<img src='/ourmision.svg' alt='Mision' className={classes.icon} />
+							<img src='/ourmision.svg' alt='Nuestra Misión' className={classes.icon} />
 							<Typography variant='h2' component='h2' gutterBottom className={classes.titleIcon}>
 								Nuestra <span className={classes.innerTitle}>Misión</span>
 							</Typography>
@@ -79,7 +79,7 @@ function About(props: IProps): JSX.Element {
 							/>
 						</Grid>
 						<Grid item xs={12} md={6} className={classes.boxGrid}>
-							<img src='/ourvision.svg' alt='Mision' className={classes.icon} />
+							<img src='/ourvision.svg' alt='Nuestra Visión' className={classes.icon} />
 							<Typography variant='h2' component='h2' gutterBottom className={classes.titleIcon}>
 								Nuestra <span className={classes.innerTitle}>Visión</span>
 							</Typography>

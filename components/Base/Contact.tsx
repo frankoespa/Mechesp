@@ -18,6 +18,7 @@ import { green } from '@material-ui/core/colors';
 import MailSender from 'emailjs-com';
 import FormFactory from '../Utils/Form/FormFactory';
 import { Labels } from '../../src/Labels';
+import { config } from 'process';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -46,13 +47,13 @@ export default function Contact(props: IProps): JSX.Element {
     function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
         return new Promise((resolve, reject) => {
             
-            MailSender.send('gmail', 'contact', values, 'user_zRtVQFZaU6RiF0T6EBrht')
-                .then((r) => {
-                    resolve(r)
-                })
-                .catch((e: Error) => {
-                    reject(e)
-                });
+            MailSender.send('test-email', 'contact', values, GLOBAL.EMAILJS_KEY)
+				.then((r) => {
+					resolve(r);
+				})
+				.catch((e: Error) => {
+					reject(e);
+				});
         })
 
 	}

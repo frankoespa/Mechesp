@@ -1,11 +1,9 @@
 import App from 'next/app';
-import Error from 'next/error'
 import { CssBaseline } from '@material-ui/core';
 import 'react-awesome-slider/dist/styles.css';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../src/theme';
 import BaseLayout from '../components/Layouts/BaseLayout';
-import Layout from '../components/Layouts/Layout';
 import LiveChat from 'react-messenger-customer-chat';
 export default class MyApp extends App {
 	constructor(props) {

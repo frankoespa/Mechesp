@@ -13,6 +13,9 @@ class MyDocument extends Document {
 				<Head>
 					<meta charSet='UTF-8' />
 					<meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
+					<meta httpEquiv='X-UA-Compatible' content='ie=edge' />
+					<link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
+					<link rel='icon' href='/favicon.ico' type='image/x-icon' />
 					<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap' />
 				</Head>
 				<body>

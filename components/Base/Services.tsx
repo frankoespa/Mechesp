@@ -67,7 +67,7 @@ function Services(props: IProps): JSX.Element {
 				<Grid container>
 					<Hidden smDown>
 						<Grid item xs={12} md={8}>
-							<img src='/iconservices.svg' alt='Servicios Mecánica Esparza' className={classes.serviciosImg} />
+							<img src='/iconservices.svg' alt='Servicios Mecánica Esparza Rosario' className={classes.serviciosImg} />
 						</Grid>
 					</Hidden>
 					<Grid item xs={12} md={4}>
