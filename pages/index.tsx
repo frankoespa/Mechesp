@@ -12,7 +12,7 @@ import ActionScroll from '../components/Utils/ActionScroll';
 import Footer from '../components/Base/Footer';
 import { IReview } from '../src/interfaces/IReview';
 import Contact from '../components/Base/Contact';
-import { GLOBAL } from '../src/configGlobal';
+import { Global } from '../src/global/Global';
 
 interface IProps {
 	allReviews: IReview[];
@@ -43,7 +43,7 @@ export default function Home(props: IProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const reviewsResponse = await Axios.get(GLOBAL.API_GOOGLE_MAP);
+    const reviewsResponse = await Axios.get(Global.API_GOOGLE_MAP);
     const allReviews = reviewsResponse.data.result.reviews as IReview[];
 
 	return {

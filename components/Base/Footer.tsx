@@ -3,7 +3,7 @@ import { Box, Container, Grid, Typography, Link } from '@material-ui/core';
 import Section from '../Utils/Section';
 import IconWhatsap from '@material-ui/icons/WhatsApp';
 import IconFacebook from '@material-ui/icons/Facebook';
-import { GLOBAL } from '../../src/configGlobal';
+import { Global } from '../../src/global/Global';
 import PrimaryText from '../Utils/Text/PrimaryText';
 
 interface IProps {}
@@ -39,20 +39,20 @@ export default function Footer(props: IProps) {
 					<Grid container spacing={4} className={classes.sectionInfo}>
 						<Grid item xs={12} md={4}>
 							<img src='/fullLogo.svg' alt='Logo Mecánica Esparza' className={classes.logo} />
-							<PrimaryText color='light' text={GLOBAL.BUSINESS_ADDRESS} />
+							<PrimaryText color='light' text={Global.BUSINESS_ADDRESS} />
 							<Typography variant='body1' component='p' gutterBottom>
-								<Link href={GLOBAL.WHATSAPP_PHONE} color='inherit' underline='none'>
-									<IconWhatsap className={classes.icon}></IconWhatsap> {GLOBAL.BUSINESS_PHONE}
+								<Link href={Global.WHATSAPP_PHONE} color='inherit' underline='none'>
+									<IconWhatsap className={classes.icon}></IconWhatsap> {Global.BUSINESS_PHONE}
 								</Link>
 							</Typography>
 						</Grid>
 						<Grid item xs={12} md={4} className={classes.sectionInfo}>
-							<PrimaryText color='light' text={GLOBAL.BUSINESS_TIME} />
-							<PrimaryText color='light' text={GLOBAL.BUSINESS_LOCATION} />
+							<PrimaryText color='light' text={Global.BUSINESS_TIME} />
+							<PrimaryText color='light' text={Global.BUSINESS_LOCATION} />
 						</Grid>
 						<Grid item xs={12} md={4} className={classes.sectionInfo}>
 							<Typography variant='body1' component='p' gutterBottom>
-								<Link href={GLOBAL.FACEBOOK_PAGE} color='inherit' underline='none'>
+								<Link href={Global.FACEBOOK_PAGE} color='inherit' underline='none'>
 									<IconFacebook className={classes.icon}></IconFacebook> Seguinos
 								</Link>
 							</Typography>
@@ -68,7 +68,7 @@ export default function Footer(props: IProps) {
 			<Box className={`${classes.sectionCopyRight} ${classes.sectionAutor}`}>
 				<Typography variant='body2' component='p'>
 					Developed by{' '}
-					<Link href={GLOBAL.LINKEDIN_AUTOR} color='inherit' underline='none'>
+					<Link href={Global.LINKEDIN_AUTOR} color='inherit' underline='none'>
 						Franco Esparza
 					</Link>
 				</Typography>

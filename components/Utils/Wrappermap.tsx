@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Marker, Map, GoogleApiWrapper } from 'google-maps-react';
-import { GLOBAL } from '../../src/configGlobal';
+import { Global } from '../../src/global/Global';
 
 interface IProp {
 	google: any;
@@ -37,5 +37,5 @@ class MapContainer extends Component<IProp> {
 }
 
 export default GoogleApiWrapper({
-	apiKey: GLOBAL.GOOGLE_MAP_KEY
+	apiKey: Global.GOOGLE_MAP_KEY
 })(MapContainer);

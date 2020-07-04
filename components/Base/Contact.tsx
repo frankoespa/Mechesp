@@ -13,12 +13,13 @@ import PrimaryButton from '../Utils/Button/PrimaryButton';
 import InfoTitle from '../Utils/Text/InfoTitle';
 import WhatsapIcon from '@material-ui/icons/WhatsApp';
 import SheduleIcon from '@material-ui/icons/Schedule';
-import { GLOBAL } from '../../src/configGlobal';
+import { Global } from '../../src/global/Global';
 import { green } from '@material-ui/core/colors';
 import MailSender from 'emailjs-com';
 import FormFactory from '../Utils/Form/FormFactory';
-import { Labels } from '../../src/Labels';
+import { Labels } from '../../src/global/Labels';
 import { config } from 'process';
+import { Messages } from '../../src/global/Messages';
 
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
@@ -47,7 +48,7 @@ export default function Contact(props: IProps): JSX.Element {
     function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
         return new Promise((resolve, reject) => {
             
-            MailSender.send(GLOBAL.EMAIL_SENDER, 'contact', values, GLOBAL.EMAILJS_KEY)
+            MailSender.send(Global.EMAIL_SENDER, 'contact', values, Global.EMAILJS_KEY)
 				.then((r) => {
 					resolve(r);
 				})
@@ -73,7 +74,7 @@ export default function Contact(props: IProps): JSX.Element {
 									<ListItemText
 										disableTypography
 										primary={<InfoTitle color='dark' text='Dirección' />}
-										secondary={<PrimaryText color='dark' text={GLOBAL.BUSINESS_ADDRESS} />}
+										secondary={<PrimaryText color='dark' text={Global.BUSINESS_ADDRESS} />}
 									/>
 								</ListItem>
 								<ListItem>
@@ -83,7 +84,7 @@ export default function Contact(props: IProps): JSX.Element {
 									<ListItemText
 										disableTypography
 										primary={<InfoTitle color='dark' text='Teléfono' />}
-										secondary={<PrimaryText color='dark' text={GLOBAL.BUSINESS_PHONE} />}
+										secondary={<PrimaryText color='dark' text={Global.BUSINESS_PHONE} />}
 									/>
 								</ListItem>
 								<ListItem>
@@ -93,7 +94,7 @@ export default function Contact(props: IProps): JSX.Element {
 									<ListItemText
 										disableTypography
 										primary={<InfoTitle color='dark' text='Horario' />}
-										secondary={<PrimaryText color='dark' text={GLOBAL.BUSINESS_TIME} />}
+										secondary={<PrimaryText color='dark' text={Global.BUSINESS_TIME} />}
 									/>
 								</ListItem>
 							</List>
@@ -106,9 +107,9 @@ export default function Contact(props: IProps): JSX.Element {
 									[Labels.Mensaje]: ''
 								}}
 								validations={{
-									[Labels.Nombre]: Yup.string().required('Requerido'),
-									[Labels.Email]: Yup.string().email('Email inválido').required('Requerido'),
-									[Labels.Mensaje]: Yup.string().max(400, 'Hasta 400').required('Requerido')
+									[Labels.Nombre]: Yup.string().required(Messages.Requerido),
+									[Labels.Email]: Yup.string().email(Messages.EmailInvalido).required(Messages.Requerido),
+									[Labels.Mensaje]: Yup.string().max(400, 'Hasta 400').required(Messages.Requerido)
 								}}
 								onSubmit={onSubmitForm}>
 								{(form) => (
