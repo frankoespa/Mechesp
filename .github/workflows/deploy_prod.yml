@@ -1,0 +1,32 @@
+name: Deploy to production --> www.mecanicaesparza.com
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+    env: 
+    NEXT_PUBLIC_GOOGLE_MAP_KEY: ${{secrets.NEXT_PUBLIC_GOOGLE_MAP_KEY}}
+    NEXT_PUBLIC_EMAILJS_KEY: ${{secrets.NEXT_PUBLIC_EMAILJS_KEY}}
+    NEXT_PUBLIC_EMAIL_SENDER: ${{secrets.NEXT_PUBLIC_EMAIL_SENDER}}
+    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@master
+    - name: Setup node js
+      uses: actions/setup-node@master
+      with:
+        node-version: '12'
+    - name: Install dependecies
+      run: npm ci
+    - name: Build  
+      run: npm run build
+    - name: Deploy to Prod
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+        
