@@ -10,10 +10,10 @@ jobs:
 
     runs-on: ubuntu-latest
     env: 
-    NEXT_PUBLIC_GOOGLE_MAP_KEY: ${{secrets.NEXT_PUBLIC_GOOGLE_MAP_KEY}}
-    NEXT_PUBLIC_EMAILJS_KEY: ${{secrets.NEXT_PUBLIC_EMAILJS_KEY}}
-    NEXT_PUBLIC_EMAIL_SENDER: ${{secrets.NEXT_PUBLIC_EMAIL_SENDER}}
-    FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      NEXT_PUBLIC_GOOGLE_MAP_KEY: ${{secrets.NEXT_PUBLIC_GOOGLE_MAP_KEY}}
+      NEXT_PUBLIC_EMAILJS_KEY: ${{secrets.NEXT_PUBLIC_EMAILJS_KEY}}
+      NEXT_PUBLIC_EMAIL_SENDER: ${{secrets.NEXT_PUBLIC_EMAIL_SENDER}}
+      FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@master
