@@ -18,7 +18,6 @@ import { green } from '@material-ui/core/colors';
 import MailSender from 'emailjs-com';
 import FormFactory from '../Utils/Form/FormFactory';
 import { Labels } from '../../src/global/Labels';
-import { config } from 'process';
 import { Messages } from '../../src/global/Messages';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -48,7 +47,7 @@ export default function Contact(props: IProps): JSX.Element {
     function onSubmitForm(values: ViewModel, formikHelpers: FormikHelpers<ViewModel>) {
         return new Promise((resolve, reject) => {
             
-            MailSender.send(Global.EMAIL_SENDER, 'contact', values, Global.EMAILJS_KEY)
+            MailSender.send(Global.EMAIL_SENDER, `contact-${Global.EMAIL_SENDER}`, values, Global.EMAILJS_KEY)
 				.then((r) => {
 					resolve(r);
 				})
