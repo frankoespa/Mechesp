@@ -23,10 +23,10 @@ export default function Home(props: IProps) {
 	return (
 		<Fragment>
 			<Head>
-				<title>Mecánica Esparza | Mecánica Integral Automotriz</title>
+				<title>Taller Mecánico en Rosario | Mecánica Esparza</title>
 				<meta
 					name='description'
-					content='Somos una empresa de Rosario especializada en servicios de mecánica integral automotriz desde hace 30 años, contando con un equipo de profesionales experimentados, equipamiento y tecnología de vanguardia'
+					content='Somos una empresa de Rosario(Zona Sur) especializada en servicios de mecánica integral automotriz desde hace 30 años, contando con un equipo de profesionales experimentados, equipamiento y tecnología de vanguardia'
 				/>
 			</Head>
 			<ActionScroll></ActionScroll>

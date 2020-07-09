@@ -1,12 +1,12 @@
 {
-    "name": "mecanica-esparza-web",
-    "description": "Web de Mecánica Esparza",
-    "author": {
-        "name": "Franco Esparza"
-    },
-    "scripts": {
+	"name": "mecanica-esparza-web",
+	"description": "Web de Mecánica Esparza",
+	"author": {
+		"name": "Franco Esparza"
+	},
+	"scripts": {
 		"dev": "next",
-		"build": "next build && next export"
+		"build": "next build && next export && node sitemapGenerator.js"
 	},
 	"dependencies": {
 		"@date-io/moment": "1.3.11",
@@ -32,6 +32,7 @@
 		"@types/react": "16.9.1",
 		"@types/yup": "0.26.35",
 		"@zeit/next-sass": "1.0.1",
+		"nextjs-sitemap-generator": "1.0.0",
 		"node-sass": "4.12.0",
 		"typescript": "3.5.3"
 	}
