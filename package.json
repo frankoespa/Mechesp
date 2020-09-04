@@ -33,7 +33,7 @@
 		"@types/yup": "0.26.35",
 		"@zeit/next-sass": "1.0.1",
 		"nextjs-sitemap-generator": "1.0.0",
-		"node-sass": "4.12.0",
+		"node-sass": "4.13.1",
 		"typescript": "3.5.3"
 	}
 }
