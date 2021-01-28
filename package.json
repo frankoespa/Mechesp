@@ -21,6 +21,7 @@
 		"google-maps-react": "2.0.2",
 		"moment": "2.24.0",
 		"next": "9.4.4",
+		"notistack": "^0.9.17",
 		"react": "16.13.1",
 		"react-awesome-slider": "4.1.0",
 		"react-dom": "16.13.1",
@@ -33,6 +34,7 @@
 		"@types/react": "16.9.1",
 		"@types/yup": "0.26.35",
 		"@zeit/next-sass": "1.0.1",
+		"cross-env": "7.0.2",
 		"nextjs-sitemap-generator": "1.0.0",
 		"node-sass": "4.12.0",
 		"typescript": "3.5.3"

@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import { WithStyles, Theme, createStyles, withStyles, Box } from '@material-ui/core';
-import Section from '../Utils/Section';
+import Section from '../Utils/Sections/Section';
 import SecondTitle from '../Utils/Text/SecondTitle';
 import PrimaryText from '../Utils/Text/PrimaryText';
 

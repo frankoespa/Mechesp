@@ -4,6 +4,7 @@ import { makeStyles, Theme } from '@material-ui/core';
 import MuiTextField from '@material-ui/core/TextField';
 import { useCallback } from 'react';
 import { Validator } from '../../../../../src/validations/Validator';
+import { IPropsInput } from '../IPropsInput';
 
 function CustomInput(props: TextFieldProps) {
 	const {
@@ -36,20 +37,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 	}
 }));
 
-interface IProps {
-	name: string;
-    label: string;
-    disabled: boolean
-}
-
-export default function TextAreaInput(props: IProps) {
+export default function TextAreaInput(props: IPropsInput) {
 	const classes = useStyles(props);
-	const { name, label, disabled } = props;
+	const { name, label, disabled, size } = props;
 
 	return (
 		<Field
 			component={CustomInput}
 			name={name}
+			size={size ? size : 'small'}
 			type='textarea'
 			label={label}
 			variant='outlined'
@@ -57,8 +53,8 @@ export default function TextAreaInput(props: IProps) {
 			multiline
 			rows={4}
 			classes={{ root: classes.rootInput }}
-            InputProps={{ className: classes.textInput }}
-            disabled= {disabled}
+			InputProps={{ className: classes.textInput }}
+			disabled={disabled}
 		/>
 	);
 }

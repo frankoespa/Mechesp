@@ -4,7 +4,7 @@ import withAutoplay from 'react-awesome-slider/dist/autoplay';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import IconStar from '@material-ui/icons/Star';
-import Section from '../Utils/Section';
+import Section from '../Utils/Sections/Section';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import SecondTitle from '../Utils/Text/SecondTitle';

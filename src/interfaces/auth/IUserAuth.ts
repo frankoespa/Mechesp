@@ -1,7 +1,10 @@
-import { Roles } from "../../global/Roles";
+import { Roles } from '../../security/Roles';
 
-export interface IUserAuth {
-    uid: string,
-    role: Roles,
-    token: string
+export interface IUser {
+	uid: string;
+	role: Roles;
+}
+export interface IAuth {
+	user: IUser;
+	loading: boolean;
 }

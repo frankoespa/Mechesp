@@ -1,5 +1,5 @@
 import React from 'react';
-import { Theme, createStyles, makeStyles, WithStyles, withStyles } from '@material-ui/core/styles';
+import { Theme, createStyles, WithStyles, withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -10,7 +10,8 @@ const styles = (theme: Theme) =>
 	createStyles({
 		heading: {
 			fontWeight: theme.typography.fontWeightMedium,
-			width: '100%'
+            width: '100%',
+            color: theme.palette.text.secondary
 		},
 		contentDialog: {
 			display: 'block'

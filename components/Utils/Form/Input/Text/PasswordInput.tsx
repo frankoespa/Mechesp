@@ -1,4 +1,4 @@
-import {  TextFieldProps, fieldToTextField } from 'formik-material-ui';
+import { TextFieldProps, fieldToTextField } from 'formik-material-ui';
 import MuiTextField from '@material-ui/core/TextField';
 import { Field } from 'formik';
 import { makeStyles, Theme } from '@material-ui/core';
@@ -37,16 +37,16 @@ const useStyles = makeStyles((theme: Theme) => ({
 	}
 }));
 
-export default function EmailInput(props: IPropsInput) {
+export default function PasswordInput(props: IPropsInput) {
 	const classes = useStyles(props);
 	const { name, label, disabled, size } = props;
 
 	return (
 		<Field
-            component={CustomInput}
-			name={name}
-            type='text'
+			component={CustomInput}
+            name={name}
             size= {size ? size : 'small'}
+			type='password'
 			label={label}
 			variant='outlined'
 			fullWidth

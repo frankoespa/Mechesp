@@ -1,7 +1,7 @@
 import { makeStyles, Theme, Box, Container, Grid, LinearProgress, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { FormikHelpers } from 'formik';
 import * as Yup from 'yup';
-import Section from '../Utils/Section';
+import Section from '../Utils/Sections/Section';
 import SecondTitle from '../Utils/Text/SecondTitle';
 import TextInput from '../Utils/Form/Input/Text/TextInput';
 import EmailInput from '../Utils/Form/Input/Text/EmailInput';
@@ -120,7 +120,7 @@ export default function Contact(props: IProps): JSX.Element {
 										{form.isSubmitting && <LinearProgress />}
 										<br />
 										{!form.status ? (
-											<PrimaryButton text='Enviar' disabled={form.isSubmitting || !form.isValid} onClick={form.submitForm} />
+											<PrimaryButton text='Enviar' disabled={form.isSubmitting || !form.isValid} onClick={form.submitForm} typeSubmit/>
 										) : (
 											<Typography variant='body1' component='p' gutterBottom color='primary'>
 												<DoneIcon className={classes.doneIcon} /> Enviado

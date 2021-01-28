@@ -4,6 +4,7 @@ import { makeStyles, Theme } from '@material-ui/core';
 import MuiTextField from '@material-ui/core/TextField';
 import { fieldToTextField, TextFieldProps } from 'formik-material-ui';
 import { Validator } from '../../../../../src/validations/Validator';
+import { IPropsInput } from '../IPropsInput';
 
 function CustomInput(props: TextFieldProps) {
 	const {
@@ -37,20 +38,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 	}
 }));
 
-interface IProps {
-	name: string;
-	label: string;
-	disabled: boolean;
-}
-
-export default function TextInput(props: IProps) {
+export default function TextInput(props: IPropsInput) {
 	const classes = useStyles(props);
-	const { name, label, disabled } = props;
+	const { name, label, disabled, size } = props;
 
 	return (
 		<Field
 			component={CustomInput}
-			name={name}
+            name={name}
+            size= {size ? size : 'small'}
 			type='text'
 			label={label}
 			variant='outlined'

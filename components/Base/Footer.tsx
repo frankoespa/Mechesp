@@ -1,6 +1,6 @@
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { Box, Container, Grid, Typography, Link } from '@material-ui/core';
-import Section from '../Utils/Section';
+import Section from '../Utils/Sections/Section';
 import IconWhatsap from '@material-ui/icons/WhatsApp';
 import IconFacebook from '@material-ui/icons/Facebook';
 import { Global } from '../../src/global/Global';

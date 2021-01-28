@@ -179,6 +179,7 @@ class BaseLayout extends Component<Props, IState> {
 					body,
 					#__next {
 						width: 100%;
+                        min-height: 100vh;
 						height: auto;
 					}
 				`}</style>

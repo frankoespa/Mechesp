@@ -1,179 +1,98 @@
 import { CssBaseline } from '@material-ui/core';
 import 'react-awesome-slider/dist/styles.css';
 import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../src/theme';
+import theme from '../components/Themes/theme';
+import themeDashboard from '../components/Themes/themeDashboard';
 import BaseLayout from '../components/Layouts/BaseLayout';
+import { DashboardLayout } from '../components/Layouts/DashboardLayout';
 import LiveChat from 'react-messenger-customer-chat';
-import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import { UserProvider } from '../src/contexts/user';
+import { AuthProvider } from '../src/contexts/AuthContext';
 import { useEffect, useState } from 'react';
-import { IUserAuth } from '../src/interfaces/auth/IUserAuth';
-import { Roles } from '../src/global/Roles';
-// export default class MyApp extends App<any, any, { user: { uid: string, role: 'admin' | 'customer'}}> {
-// 	constructor(props) {
-//         super(props);
-//         this.state= {user: null}
-// 	}
+import { IAuth } from '../src/interfaces/auth/IUserAuth';
+import { Routes } from '../src/global/Routes';
+import { NotificationManager } from '../components/Utils/Notification/NotificationManager';
+import { OnAuthStateChange, InitializeFirebase } from '../src/utils/firebase/firebaseUtils';
+import { PrivateView } from '../components/Utils/Security/PrivateView';
 
-// 	componentDidMount() {
-// 		// Remove the server-side injected CSS.
-// 		const jssStyles = document.querySelector('#jss-server-side');
-// 		if (jssStyles) {
-// 			jssStyles.parentNode.removeChild(jssStyles);
-// 		}
+InitializeFirebase();
 
-// 		Firebase.initializeApp({
-// 			apiKey: 'AIzaSyAz5v9dOmdkNJYSNIRC-U-VJvemHD9owxs',
-// 			projectId: 'mecanicaesparza-test',
-// 			appId: '1:232005837121:web:b75f81770788bc501441c0'
-// 		});
-// 	}
-
-// 	render() {
-// 		const { Component, pageProps, router } = this.props;
-// 		if (router.pathname.includes('login')) {
-// 			return (
-// 				<ThemeProvider theme={theme}>
-// 					<CssBaseline />
-// 					<Component {...pageProps} />
-// 					<LiveChat
-// 						pageId='1312661855504776'
-// 						appId='341667103096684'
-// 						language='es_LA'
-// 						shouldShowDialog={true}
-// 						loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
-// 						loggedOutGreeting='Hola, ingresa para hablar con nosotros'
-// 						greetingDialogDisplay='show'
-// 						greetingDialogDelay={5}
-// 					/>
-// 				</ThemeProvider>
-// 			);
-// 		}
-// 		// if (!router.pathname.includes('repadmin')) {
-// 		return (
-// 			<UserProvider value={}>
-// 				<ThemeProvider theme={theme}>
-// 					<CssBaseline />
-// 					<BaseLayout>
-// 						<Component {...pageProps} />
-// 						<LiveChat
-// 							pageId='1312661855504776'
-// 							appId='341667103096684'
-// 							language='es_LA'
-// 							shouldShowDialog={true}
-// 							loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
-// 							loggedOutGreeting='Hola, ingresa para hablar con nosotros'
-// 							greetingDialogDisplay='show'
-// 							greetingDialogDelay={5}
-// 						/>
-// 					</BaseLayout>
-// 				</ThemeProvider>
-// 			</UserProvider>
-// 		);
-// 		// }
-// 		// else {
-// 		// 	return (
-// 		// 		<ThemeProvider theme={theme}>
-// 		// 			<CssBaseline />
-// 		// 			<Layout>
-// 		// 				<Component {...pageProps} />
-// 		// 			</Layout>
-// 		// 		</ThemeProvider>
-// 		// 	);
-// 		// }
-// 	}
-// }
-// // import App from 'next/app'
-
-if (!firebase.apps.length) {
-	firebase.initializeApp({
-		apiKey: 'AIzaSyAz5v9dOmdkNJYSNIRC-U-VJvemHD9owxs',
-		projectId: 'mecanicaesparza-test',
-		appId: '1:232005837121:web:b75f81770788bc501441c0'
-	});
-}
+console.log('Firebase inicializado');
 
 function MyApp({ Component, pageProps, router }) {
-	const [user, setUser] = useState<IUserAuth>(null);
+	const [auth, setAuth] = useState<IAuth>({user: null, loading: true});
 
-    useEffect(() => {
-        console.log('Render App')
-		let unsuscribe = firebase.auth().onIdTokenChanged(function (user) {
-            if (user) {
-                console.log('EXISTS USER');
-                console.log(user)
+	useEffect(() => {
+        console.log('myApp rendered')
+		//Remove the server-side injected CSS.
+		const jssStyles = document.querySelector('#jss-server-side');
+		if (jssStyles) {
+			jssStyles.parentNode.removeChild(jssStyles);
+		}
 
-				user.getIdTokenResult().then(({claims, token}) => {
-					const role: Roles = claims.role ? claims.role : null;
-					setUser({
-						uid: user.uid,
-                        role,
-                        token 
-					});
-				});
-			} else {
-				console.log('NOT USER');
-
-				setUser(null);
-			}
-		});
+		let unsuscribe = OnAuthStateChange(setAuth);
 
 		return unsuscribe;
 	}, []);
 
-	if (router.pathname.includes('login')) {
+	if (router.pathname.includes(Routes.Login)) {
 		return (
-			<UserProvider value={user}>
+			<AuthProvider value={{ user: auth.user, loading: auth.loading}}>
+				<ThemeProvider theme={theme}>
+					<NotificationManager>
+						<CssBaseline />
+						<Component {...pageProps} />
+						<LiveChat
+							pageId='1312661855504776'
+							appId='341667103096684'
+							language='es_LA'
+							shouldShowDialog={true}
+							loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
+							loggedOutGreeting='Hola, ingresa para hablar con nosotros'
+							greetingDialogDisplay='show'
+							greetingDialogDelay={5}
+						/>
+					</NotificationManager>
+				</ThemeProvider>
+			</AuthProvider>
+		);
+	} else if (router.pathname.includes('/dashboard')) {
+		return (
+			<AuthProvider value={{ user: auth.user, loading: auth.loading}}>
+				<ThemeProvider theme={themeDashboard}>
+					<NotificationManager>
+						<CssBaseline />
+						<PrivateView>
+							<DashboardLayout>
+								<Component {...pageProps} />
+							</DashboardLayout>
+						</PrivateView>
+					</NotificationManager>
+				</ThemeProvider>
+			</AuthProvider>
+		);
+	} else {
+		return (
+			<AuthProvider value={{ user: auth.user, loading: auth.loading}}>
 				<ThemeProvider theme={theme}>
 					<CssBaseline />
-					<Component {...pageProps} />
-					<LiveChat
-						pageId='1312661855504776'
-						appId='341667103096684'
-						language='es_LA'
-						shouldShowDialog={true}
-						loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
-						loggedOutGreeting='Hola, ingresa para hablar con nosotros'
-						greetingDialogDisplay='show'
-						greetingDialogDelay={5}
-					/>
+					<BaseLayout>
+						<Component {...pageProps} />
+						<LiveChat
+							pageId='1312661855504776'
+							appId='341667103096684'
+							language='es_LA'
+							shouldShowDialog={true}
+							loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
+							loggedOutGreeting='Hola, ingresa para hablar con nosotros'
+							greetingDialogDisplay='show'
+							greetingDialogDelay={5}
+						/>
+					</BaseLayout>
 				</ThemeProvider>
-			</UserProvider>
+			</AuthProvider>
 		);
 	}
-	// if (!router.pathname.includes('repadmin')) {
-	return (
-		<UserProvider value={user}>
-			<ThemeProvider theme={theme}>
-				<CssBaseline />
-				<BaseLayout>
-					<Component {...pageProps} />
-					<LiveChat
-						pageId='1312661855504776'
-						appId='341667103096684'
-						language='es_LA'
-						shouldShowDialog={true}
-						loggedInGreeting='Hola, ¿en qué podemos ayudarlo?'
-						loggedOutGreeting='Hola, ingresa para hablar con nosotros'
-						greetingDialogDisplay='show'
-						greetingDialogDelay={5}
-					/>
-				</BaseLayout>
-			</ThemeProvider>
-		</UserProvider>
-	);
-	// }
-	// else {
-	// 	return (
-	// 		<ThemeProvider theme={theme}>
-	// 			<CssBaseline />
-	// 			<Layout>
-	// 				<Component {...pageProps} />
-	// 			</Layout>
-	// 		</ThemeProvider>
-	// 	);
-	// }
 }
 
 // Only uncomment this method if you have blocking data requirements for

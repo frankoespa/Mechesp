@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Marker, Map, GoogleApiWrapper } from 'google-maps-react';
-import { Global } from '../../src/global/Global';
+import { Global } from '../../../src/global/Global';
 
 interface IProp {
 	google: any;

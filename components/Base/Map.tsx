@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import GoogleMap from '../Utils/Wrappermap';
+import GoogleMap from '../Utils/Map/Wrappermap';
 
 interface IProps {}
 const useStyles = makeStyles((theme: Theme) => ({

@@ -43,5 +43,5 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-pages/repadmin
+.vscode
 
