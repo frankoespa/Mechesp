@@ -4,6 +4,7 @@ import { red, grey } from '@material-ui/core/colors';
 // Create a theme instance.
 let themeDashboard = createMuiTheme({
 	palette: {
+        divider: grey[600],
 		primary: {
 			light: grey[50],
 			main: '#15151a'
@@ -17,7 +18,11 @@ let themeDashboard = createMuiTheme({
 		text: {
 			primary: grey[50],
 			secondary: '#1E1E24'
-		}
+        },
+        background: {
+            default: grey[200],
+            paper: grey[50]
+        }
 	}
 });
 

@@ -1,6 +1,6 @@
-import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import Axios, { AxiosInstance, AxiosRequestConfig, AxiosError } from 'axios';
 import { useFirebaseAuthUtils } from './useFirebaseAuthUtils';
-import { IViewModel } from '../interfaces/IViewModel';
+import { IViewModel } from '../base/IViewModel';
 import { useNotification } from './useNotification';
 
 export const useApiManager = () => {
@@ -8,7 +8,7 @@ export const useApiManager = () => {
 	const { GetTokenUser } = useFirebaseAuthUtils();
 
 	let axios: AxiosInstance = Axios.create({
-		baseURL: 'https://localhost:4000/api'
+		baseURL: 'http://localhost:4000/api'
 	});
 
 	async function CreateRequestConfig(): Promise<AxiosRequestConfig> {
@@ -43,29 +43,14 @@ export const useApiManager = () => {
 			const { data } = await axios.get<ResponseDataType>(`/${controllerName}/${actionName}`, requestConfig);
 			return data;
 		} catch (error) {
-			if (error.response) {
-				// The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
-				console.log(error.response.data);
-				console.log(error.response.status);
-				console.log(error.response.headers);
-			} else if (error.request) {
-				// The request was made but no response was received
-				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-				// http.ClientRequest in node.js
-				console.log(error.request);
-			} else {
-				// Something happened in setting up the request that triggered an Error
-				console.log('Error', error.message);
-			}
-			console.log(error.config);
+			HandleError(error)
 		}
-    }
-    
-    async function Post<ResponseDataType extends IViewModel | IViewModel[]>(
+	}
+
+	async function Post<ResponseDataType extends IViewModel | IViewModel[]>(
 		controllerName: string,
-        actionName: string,
-        body: IViewModel
+		actionName: string,
+		body: IViewModel
 	): Promise<ResponseDataType | ResponseDataType[]> {
 		let requestConfig: AxiosRequestConfig;
 
@@ -75,27 +60,35 @@ export const useApiManager = () => {
 			const { data } = await axios.post<ResponseDataType>(`/${controllerName}/${actionName}`, body, requestConfig);
 			return data;
 		} catch (error) {
-			if (error.response) {
-				// The request was made and the server responded with a status code
-				// that falls out of the range of 2xx
-				console.log(error.response.data);
-				console.log(error.response.status);
-				console.log(error.response.headers);
-			} else if (error.request) {
-				// The request was made but no response was received
-				// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-				// http.ClientRequest in node.js
-				console.log(error.request);
-			} else {
-				// Something happened in setting up the request that triggered an Error
-				console.log('Error', error.message);
-			}
-			console.log(error.config);
+			HandleError(error)
 		}
     }
     
-    return {
-        Get,
-        Post
+    interface IExceptionResponse {
+        status: number;
+        timestamp: string;
+        url: string;
+        message: string
     }
+
+    function HandleError(error: AxiosError<IExceptionResponse>){
+        if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            showNotificationFail(error.response.data.message)
+        } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            showNotificationFail(error.message)
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            // console.log('Error', error.message);
+        }
+    }
+
+	return {
+		Get,
+		Post
+	};
 };

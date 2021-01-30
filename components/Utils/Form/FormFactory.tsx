@@ -1,6 +1,6 @@
 import { Formik, Form, FormikHelpers, FormikProps } from 'formik';
 import * as Yup from 'yup';
-import { IViewModel } from '../../../src/interfaces/IViewModel';
+import { IViewModel } from '../../../src/base/IViewModel';
 import { IValidation } from '../../../src/validations/IValidation';
 
 interface IProps {
@@ -13,13 +13,8 @@ interface IProps {
 export default function FormFactory(props: IProps) {
 	const { children, initialValues, validations, onSubmit } = props;
 
-	const onSubmitForm = async (values, formikHelpers) => {
-		formikHelpers.setSubmitting(true);
-		try {
-			await onSubmit(values, formikHelpers);
-		} catch (e) {
-			console.log(e);
-		}
+	const onSubmitForm = async (values: IViewModel, formikHelpers: FormikHelpers<IViewModel>) => {
+		await onSubmit(values, formikHelpers);
 	};
 
 	return (

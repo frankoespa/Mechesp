@@ -1,4 +1,4 @@
-import { IViewModel } from "../IViewModel";
+import { IViewModel } from "../../base/IViewModel";
 
 export interface IUserSignin extends IViewModel {
     Email: string,

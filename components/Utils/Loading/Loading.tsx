@@ -16,7 +16,7 @@ export default function Loading(props: IProps) {
 
     return (
         <Backdrop className={classes.backdrop} open={true}>
-        <CircularProgress color="inherit"/>
+        <CircularProgress color="primary"/>
       </Backdrop>
     )
 }

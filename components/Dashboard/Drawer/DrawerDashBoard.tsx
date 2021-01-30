@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 		paddingLeft: theme.spacing(4)
     },
     itemText: {
-        color: theme.palette.text.secondary
+        color: theme.palette.text.primary
     },
     iconText: {
-        color: theme.palette.text.secondary
+        color: theme.palette.text.primary
     }
 }));
 
@@ -59,7 +59,7 @@ export function DrawerDashBoard(props: IProps) {
 			return (
 				<>
 					<ListItem button onClick={() => handleCollapseClick(p)} key={key}>
-						<ListItemIcon>{value.icon}</ListItemIcon>
+						<ListItemIcon className={classes.iconText}>{value.icon}</ListItemIcon>
 						<ListItemText primary={p} classes={{root: classes.itemText}}/>
 						{menuCollapse[p] ? <ExpandLess className={classes.iconText}/> : <ExpandMore className={classes.iconText}/>}
 					</ListItem>

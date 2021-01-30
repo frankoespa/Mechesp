@@ -19,19 +19,20 @@ interface IProps {
 	href?: string;
     disabled?: boolean;
     typeSubmit?: boolean;
+    size?: 'small' | 'medium' | 'large'
 	onClick?: () => void;
 }
 
 export default function PrimaryButton(props: IProps) {
 	const classes = useStyles(props);
-	const { text, href, disabled, onClick, typeSubmit } = props;
+	const { text, href, disabled, onClick, typeSubmit, size } = props;
 
 	return (
         <Button
             color= 'secondary'
             variant='contained'
             type= {typeSubmit ? 'submit' : 'button'}
-			size='large'
+			size= {size ? size : 'large'}
 			href={href}
 			onClick={onClick}
 			disabled={disabled}

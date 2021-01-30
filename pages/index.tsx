@@ -8,7 +8,7 @@ import About from '../components/Base/About';
 import Map from '../components/Base/Map';
 import Reviews from '../components/Base/Reviews';
 import Logos from '../components/Base/Logos';
-import ActionScroll from '../components/Utils/ActionScroll';
+import ActionScroll from '../components/Utils/Scroll/ActionScroll';
 import Footer from '../components/Base/Footer';
 import { IReview } from '../src/interfaces/IReview';
 import Contact from '../components/Base/Contact';
