@@ -8,5 +8,7 @@ export enum Labels {
 	Enviar = 'Enviar',
 	CrearCuenta = 'Crear Cuenta',
     Ingresar = 'Ingresar',
-    Buscar = 'Buscar'
+    Buscar = 'Buscar',
+    Filtro = 'Filtro',
+    Dni = 'Dni'
 }

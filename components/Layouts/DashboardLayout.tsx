@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 		[theme.breakpoints.up('sm')]: {
 			width: `calc(100% - ${drawerWidth}px)`
         },
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.secondary
 	},
 	menuButton: {

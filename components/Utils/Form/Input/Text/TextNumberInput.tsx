@@ -15,7 +15,7 @@ function CustomInput(props: TextFieldProps) {
 	const onChange = useCallback(
 		(event) => {
 			const { value } = event.target;
-			Validator.JustLetters(name, value, setFieldValue, setFieldTouched);
+			Validator.JustNumbers(name, value, setFieldValue, setFieldTouched);
 		},
 		[setFieldValue, name]
 	);
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 	}
 }));
 
-export default function TextInput(props: IPropsInput) {
+export default function TextNumberInput(props: IPropsInput) {
 	const classes = useStyles(props);
 	const { name, label, disabled, size } = props;
 
